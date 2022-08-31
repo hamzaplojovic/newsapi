@@ -1,36 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NewsContext } from "../../context/context";
-import NewsArticle from "./NewsArticle/NewsArticle";
-import { createStyles, MediaQuery } from "@mantine/core";
+import { Mapping } from "./FilteringComponents/Mapping";
+import { Load } from "./FilteringComponents/LoadMore";
 import { Layout } from "../Layout/Layout";
 
-const useStyles = createStyles((theme) => ({
-    container: {
-        width: "100%",
-        display: "flex",
-        padding: "5% 0%",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-}));
-
 export const News = () => {
+    const [pageSize, setPageSize] = useState(10);
     const data: any = useContext(NewsContext);
-    const { classes } = useStyles();
     return (
         <Layout>
-            <MediaQuery
-                query="(max-width:1000px)"
-                styles={{ flexDirection: "column" }}
-            >
-                <div className={classes.container}>
-                    {data &&
-                        data.articles.map((item: any) => (
-                            <NewsArticle data={item} key={item.url} />
-                        ))}
-                </div>
-            </MediaQuery>
+            <Mapping data={data} pageSize={pageSize} />
+            <Load state={pageSize} setState={setPageSize} data={data} />
         </Layout>
     );
 };

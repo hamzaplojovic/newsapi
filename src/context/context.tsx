@@ -13,7 +13,7 @@ export const NewsContextProvider = (props: NewsContextInterface) => {
     useEffect(() => {
         axios
             .get(
-                `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apikey}`
+                `https://newsapi.org/v2/top-headlines?country=us&pageSize=100&apiKey=${apikey}`
             )
             .then((r) => {
                 setData(r.data);

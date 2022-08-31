@@ -9,7 +9,7 @@ import {
 import { TablerIcon, IconHome2, IconSearch } from "@tabler/icons";
 import { Link } from "react-router-dom";
 
-const useStyles = createStyles((theme, _params, getRef) => ({
+const useStyles = createStyles((theme, _params) => ({
     link: {
         transition: "ease-in-out 0.2s all",
         width: 50,

@@ -1,7 +1,7 @@
 import { Card, Image, Text, Button, Group } from "@mantine/core";
 import { createStyles, MediaQuery } from "@mantine/core";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
     article: {
         width: "35%",
         margin: "5% 5%",

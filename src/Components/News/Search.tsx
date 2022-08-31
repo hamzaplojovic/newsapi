@@ -1,18 +1,11 @@
+import { Load } from "./FilteringComponents/LoadMore";
 import { useContext, useState } from "react";
 import { NewsContext } from "../../context/context";
-import NewsArticle from "./NewsArticle/NewsArticle";
-import { createStyles, MediaQuery, Input } from "@mantine/core";
+import { createStyles, Input } from "@mantine/core";
 import { Layout } from "../Layout/Layout";
+import { Filtering } from "./FilteringComponents/Filtering";
 
-const useStyles = createStyles((theme) => ({
-    container: {
-        width: "100%",
-        display: "flex",
-        padding: "5% 0%",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-    },
+const useStyles = createStyles(() => ({
     wrapper: {
         marginTop: "5%",
         display: "flex",
@@ -26,6 +19,7 @@ const useStyles = createStyles((theme) => ({
 
 export const Search = () => {
     const data: any = useContext(NewsContext);
+    const [pageSize, setPageSize] = useState(10);
     const [search, setSearch] = useState("");
     const handleChange = (e: any) => {
         setSearch(e.target.value);
@@ -35,32 +29,14 @@ export const Search = () => {
         <Layout>
             <div className={classes.wrapper}>
                 <Input
+                    size="lg"
                     placeholder="Search"
                     value={search}
                     onChange={handleChange}
                     className={classes.input}
                 />
-                <MediaQuery
-                    query="(max-width:1000px)"
-                    styles={{ flexDirection: "column" }}
-                >
-                    <div className={classes.container}>
-                        {data &&
-                            data.articles
-                                .filter((item: any) => {
-                                    if (
-                                        item.title
-                                            .toLowerCase()
-                                            .includes(search.toLowerCase())
-                                    ) {
-                                        return item;
-                                    }
-                                })
-                                .map((item: any) => (
-                                    <NewsArticle data={item} key={item.url} />
-                                ))}
-                    </div>
-                </MediaQuery>
+                <Filtering search={search} pageSize={pageSize} data={data} />
+                <Load state={pageSize} setState={setPageSize} data={data} />
             </div>
         </Layout>
     );
