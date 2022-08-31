@@ -6,7 +6,7 @@ import {
     createStyles,
     Stack,
 } from "@mantine/core";
-import { TablerIcon, IconHome2, IconNews } from "@tabler/icons";
+import { TablerIcon, IconHome2, IconSearch } from "@tabler/icons";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
@@ -119,7 +119,7 @@ function NavbarLink({ path, icon: Icon, label }: NavbarLinkProps) {
 
 const mockdata = [
     { icon: IconHome2, label: "Home", path: "/" },
-    { icon: IconNews, label: "News", path: "/news" },
+    { icon: IconSearch, label: "News", path: "/news" },
 ];
 
 export function NavbarMinimal() {
