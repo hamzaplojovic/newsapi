@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NewsContext } from "../../context/context";
 import NewsArticle from "../NewsArticle/NewsArticle";
 import { createStyles } from "@mantine/core";
+import { Layout } from "../Layout/Layout";
 
 const useStyles = createStyles((theme) => ({
     container: {
@@ -17,11 +18,13 @@ export const News = () => {
     const data: any = useContext(NewsContext);
     const { classes } = useStyles();
     return (
-        <div className={classes.container}>
-            {data &&
-                data.articles.map((item: any) => (
-                    <NewsArticle data={item} key={item.url} />
-                ))}
-        </div>
+        <Layout>
+            <div className={classes.container}>
+                {data &&
+                    data.articles.map((item: any) => (
+                        <NewsArticle data={item} key={item.url} />
+                    ))}
+            </div>
+        </Layout>
     );
 };
