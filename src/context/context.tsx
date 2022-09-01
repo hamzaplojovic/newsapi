@@ -17,9 +17,6 @@ export const NewsContextProvider = (props: NewsContextInterface) => {
             )
             .then((r) => {
                 setData(r.data);
-            })
-            .catch((error) => {
-                console.log(error);
             });
     }, []);
     return (

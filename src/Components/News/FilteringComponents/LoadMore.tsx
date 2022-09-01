@@ -1,7 +1,7 @@
 import { createStyles, Button } from "@mantine/core";
 
 interface LoadMoreInterface {
-    data: any;
+    data?: any;
     setState: any;
     state: any;
 }

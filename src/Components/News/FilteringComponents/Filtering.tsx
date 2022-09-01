@@ -1,11 +1,8 @@
+import { SearchData } from "../../../context/search";
 import { createStyles, MediaQuery } from "@mantine/core";
 import NewsArticle from "../NewsArticle/NewsArticle";
-
-interface FilteringInterface {
-    data: any;
-    search: any;
-    pageSize: any;
-}
+import { Load } from "./LoadMore";
+import { useState } from "react";
 
 const useStyles = createStyles(() => ({
     container: {
@@ -16,37 +13,35 @@ const useStyles = createStyles(() => ({
         justifyContent: "center",
         alignItems: "center",
     },
-    wrapper: {
-        marginTop: "5%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+    buttonwrapper: {
+        width: "100%",
+        textAlign: "center",
+        marginBottom: "3%",
     },
 }));
-
-export const Filtering = (props: FilteringInterface) => {
+export const Filtering = (props: {
+    phrase: string;
+    sortBy: string;
+    pageSize: number;
+}) => {
+    const [pageSize, setPageSize] = useState(10);
     const { classes } = useStyles();
+    const { data }: any = SearchData({
+        phrase: props.phrase,
+        sortBy: props.sortBy,
+    });
+
     return (
         <MediaQuery
             query="(max-width:1000px)"
             styles={{ flexDirection: "column" }}
         >
             <div className={classes.container}>
-                {props.data &&
-                    props.data.articles
-                        .slice(0, props.pageSize)
-                        .filter((item: any) => {
-                            if (
-                                item.title
-                                    .toLowerCase()
-                                    .includes(props.search.toLowerCase())
-                            ) {
-                                return item;
-                            }
-                        })
-                        .map((item: any) => (
-                            <NewsArticle data={item} key={item.url} />
-                        ))}
+                {data.articles &&
+                    data.articles.slice(0, pageSize).map((item: any) => {
+                        return <NewsArticle data={item} key={item.url} />;
+                    })}
+                <Load state={pageSize} setState={setPageSize} data={data} />
             </div>
         </MediaQuery>
     );
