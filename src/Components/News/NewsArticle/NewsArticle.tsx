@@ -62,11 +62,7 @@ function NewsArticle(props: ArticleInterface) {
                 <Anchor href={"/news/" + props.data.title}>
                     <Button
                         variant="light"
-                        color="blue"
-                        mt="md"
                         fullWidth
-                        radius="md"
-                        size="sm"
                         className={classes.button}
                     >
                         View Article
