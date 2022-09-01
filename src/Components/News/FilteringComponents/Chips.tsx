@@ -1,8 +1,8 @@
 import { createStyles, Chip } from "@mantine/core";
 
 interface ChipInterface {
-    state: any;
-    setState: any;
+    state: string;
+    setState: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const useStyles = createStyles((theme, _params, getRef) => ({

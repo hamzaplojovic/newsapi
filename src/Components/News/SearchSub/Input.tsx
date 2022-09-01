@@ -14,10 +14,10 @@ const useStyles = createStyles(() => ({
 }));
 
 export const SearchInput = (props: {
-    term: any;
-    setTerm: any;
-    search: any;
-    setSearch: any;
+    term: string;
+    setTerm: React.Dispatch<React.SetStateAction<string>>;
+    search: string;
+    setSearch: React.Dispatch<React.SetStateAction<string>>;
 }) => {
     const { classes } = useStyles();
     return (

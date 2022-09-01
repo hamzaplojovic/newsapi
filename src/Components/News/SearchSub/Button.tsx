@@ -13,7 +13,10 @@ const useStyles = createStyles(() => ({
     },
 }));
 
-export const SearchButton = (props: { term: any; setClick: any }) => {
+export const SearchButton = (props: {
+    term: string;
+    setClick: React.Dispatch<React.SetStateAction<string>>;
+}) => {
     const { classes } = useStyles();
     return (
         <div className={classes.button}>

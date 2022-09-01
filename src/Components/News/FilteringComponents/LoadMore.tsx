@@ -2,8 +2,8 @@ import { createStyles, Button } from "@mantine/core";
 
 interface LoadMoreInterface {
     data?: any;
-    setState: any;
-    state: any;
+    setState: React.Dispatch<React.SetStateAction<number>>;
+    state: number;
 }
 
 const useStyles = createStyles(() => ({
@@ -24,7 +24,7 @@ export const Load = (props: LoadMoreInterface) => {
                     if (props.data.articles.length > props.state) {
                         props.setState(props.state + 5);
                     } else {
-                        alert("No more content");
+                        alert("No content!");
                     }
                 }}
             >

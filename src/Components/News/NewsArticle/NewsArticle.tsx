@@ -1,10 +1,14 @@
-import { Card, Image, Text, Button, Group } from "@mantine/core";
+import { Card, Image, Text, Button, Group, Anchor } from "@mantine/core";
 import { createStyles, MediaQuery } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
     article: {
         width: "35%",
         margin: "5% 5%",
+        transition: "all 0.2s ease-in",
+        "&:hover": {
+            transform: "translateY(-10px)",
+        },
     },
     button: {
         bottom: 0,
@@ -14,9 +18,14 @@ const useStyles = createStyles(() => ({
         },
     },
 }));
+type Data = {
+    title: string;
+    description: string;
+    urlToImage: string;
+};
 
 interface ArticleInterface {
-    data: any;
+    data: Data;
 }
 
 function NewsArticle(props: ArticleInterface) {
@@ -31,12 +40,14 @@ function NewsArticle(props: ArticleInterface) {
                 className={classes.article}
             >
                 <Card.Section>
-                    <Image
-                        src={props.data.urlToImage}
-                        height={260}
-                        alt="Norway"
-                        fit="cover"
-                    />
+                    <Anchor href={props.data.title}>
+                        <Image
+                            src={props.data.urlToImage}
+                            height={260}
+                            alt="Norway"
+                            fit="cover"
+                        />
+                    </Anchor>
                 </Card.Section>
 
                 <Group position="apart" mt="md" mb="xs">
@@ -48,17 +59,19 @@ function NewsArticle(props: ArticleInterface) {
                 <Text size="xs" color="dimmed">
                     {props.data.description}
                 </Text>
-                <Button
-                    variant="light"
-                    color="blue"
-                    mt="md"
-                    fullWidth
-                    radius="md"
-                    size="sm"
-                    className={classes.button}
-                >
-                    View Article
-                </Button>
+                <Anchor href={"/news/" + props.data.title}>
+                    <Button
+                        variant="light"
+                        color="blue"
+                        mt="md"
+                        fullWidth
+                        radius="md"
+                        size="sm"
+                        className={classes.button}
+                    >
+                        View Article
+                    </Button>
+                </Anchor>
             </Card>
         </MediaQuery>
     );

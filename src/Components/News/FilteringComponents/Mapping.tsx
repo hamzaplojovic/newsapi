@@ -19,7 +19,7 @@ const useStyles = createStyles(() => ({
 
 interface MappingInterface {
     data: any;
-    pageSize: any;
+    pageSize: number;
 }
 
 export const Mapping = (props: MappingInterface) => {
