@@ -16,7 +16,7 @@ const useStyles = createStyles(() => ({
 
 export const SerchWrapper = () => {
     const [search, setSearch] = useState("");
-    const [term, setTerm] = useState("");
+    const [term, setTerm] = useState("popularity");
     const [click, setClick] = useState("");
     const { classes } = useStyles();
 
