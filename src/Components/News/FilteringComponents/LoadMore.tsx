@@ -2,8 +2,8 @@ import { createStyles, Button } from "@mantine/core";
 
 interface LoadMoreInterface {
     data?: any;
-    setState: React.Dispatch<React.SetStateAction<number>>;
-    state: number;
+    setNumberOfArticles: React.Dispatch<React.SetStateAction<number>>;
+    numberOfArticles: number;
 }
 
 const useStyles = createStyles(() => ({
@@ -19,13 +19,9 @@ export const Load = (props: LoadMoreInterface) => {
     return (
         <div className={classes.buttonwrapper}>
             <Button
-                size="md"
                 onClick={() => {
-                    if (props.data.articles.length > props.state) {
-                        props.setState(props.state + 5);
-                    } else {
-                        alert("No content!");
-                    }
+                    props.setNumberOfArticles(props.numberOfArticles + 1);
+                    window.scrollTo(0, 100);
                 }}
             >
                 Load More

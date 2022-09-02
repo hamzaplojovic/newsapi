@@ -24,11 +24,12 @@ export const Filtering = (props: {
     sortBy: string;
     pageSize: number;
 }) => {
-    const [pageSize, setPageSize] = useState(10);
+    const [pageNumber, setPageNumber] = useState(1);
     const { classes } = useStyles();
     const { data }: any = SearchData({
         phrase: props.phrase,
         sortBy: props.sortBy,
+        pageNumber: pageNumber,
     });
 
     return (
@@ -38,10 +39,14 @@ export const Filtering = (props: {
         >
             <div className={classes.container}>
                 {data.articles &&
-                    data.articles.slice(0, pageSize).map((item: any) => {
+                    data.articles.map((item: any) => {
                         return <NewsArticle data={item} key={item.url} />;
                     })}
-                <Load state={pageSize} setState={setPageSize} data={data} />
+                <Load
+                    numberOfArticles={pageNumber}
+                    setNumberOfArticles={setPageNumber}
+                    data={data}
+                />
             </div>
         </MediaQuery>
     );

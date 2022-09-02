@@ -19,7 +19,6 @@ const useStyles = createStyles(() => ({
 
 interface MappingInterface {
     data: any;
-    pageSize: number;
 }
 
 export const Mapping = (props: MappingInterface) => {
@@ -31,11 +30,9 @@ export const Mapping = (props: MappingInterface) => {
         >
             <div className={classes.container}>
                 {props.data &&
-                    props.data.articles
-                        .slice(0, props.pageSize)
-                        .map((item: any) => (
-                            <NewsArticle data={item} key={item.url} />
-                        ))}
+                    props.data.articles.map((item: any) => (
+                        <NewsArticle data={item} key={item.url} />
+                    ))}
             </div>
         </MediaQuery>
     );
