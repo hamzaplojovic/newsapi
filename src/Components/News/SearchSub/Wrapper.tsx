@@ -18,7 +18,6 @@ export const SerchWrapper = () => {
     const [search, setSearch] = useState("");
     const [term, setTerm] = useState("");
     const [click, setClick] = useState("");
-    const [pageSize, setPageSize] = useState(10);
     const { classes } = useStyles();
 
     return (
@@ -32,13 +31,7 @@ export const SerchWrapper = () => {
                 />
                 <SearchButton term={term} setClick={setClick} />
 
-                {click === term && (
-                    <Filtering
-                        phrase={search}
-                        sortBy={term}
-                        pageSize={pageSize}
-                    />
-                )}
+                {click === term && <Filtering phrase={search} sortBy={term} />}
             </div>
         </Layout>
     );

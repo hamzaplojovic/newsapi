@@ -1,5 +1,4 @@
 import { createStyles, Button } from "@mantine/core";
-
 interface LoadMoreInterface {
     data?: any;
     setNumberOfArticles: React.Dispatch<React.SetStateAction<number>>;

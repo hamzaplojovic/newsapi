@@ -1,14 +1,14 @@
-import { useParams } from "react-router-dom";
-import { FullPageData } from "../../../context/full";
+import { useLocation } from "react-router";
 import { FullPageContent } from "./FullPageContent";
+import { Layout } from "../../Layout/Layout";
 
 export const Wrapper = () => {
-    const { title } = useParams<{ title?: string }>();
-    const { data }: any = FullPageData({
-        title: title,
-    });
-
-    return <FullPageContent data={data} />;
+    const { state }: any = useLocation();
+    return (
+        <Layout>
+            <FullPageContent data={state.data} />
+        </Layout>
+    );
 };
 
 export default Wrapper;

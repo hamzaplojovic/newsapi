@@ -19,11 +19,7 @@ const useStyles = createStyles(() => ({
         marginBottom: "3%",
     },
 }));
-export const Filtering = (props: {
-    phrase: string;
-    sortBy: string;
-    pageSize: number;
-}) => {
+export const Filtering = (props: { phrase: string; sortBy: string }) => {
     const [pageNumber, setPageNumber] = useState(1);
     const { classes } = useStyles();
     const { data }: any = SearchData({
