@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export const SearchData = (props: {
+export const useSearchData = (props: {
     phrase: string;
     sortBy: string;
     pageNumber: number;

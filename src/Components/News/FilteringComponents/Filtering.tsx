@@ -1,4 +1,4 @@
-import { SearchData } from "../../../context/search";
+import { useSearchData } from "../../../context/search";
 import { createStyles, MediaQuery } from "@mantine/core";
 import NewsArticle from "../NewsArticle/NewsArticle";
 import { Load } from "./LoadMore";
@@ -22,7 +22,7 @@ const useStyles = createStyles(() => ({
 export const Filtering = (props: { phrase: string; sortBy: string }) => {
     const [pageNumber, setPageNumber] = useState(1);
     const { classes } = useStyles();
-    const { data }: any = SearchData({
+    const { data }: any = useSearchData({
         phrase: props.phrase,
         sortBy: props.sortBy,
         pageNumber: pageNumber,

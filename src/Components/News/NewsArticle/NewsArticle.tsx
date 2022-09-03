@@ -50,7 +50,6 @@ function NewsArticle(props: ArticleInterface) {
                     <Image
                         src={props.data.urlToImage}
                         height={260}
-                        alt="Norway"
                         fit="cover"
                     />
                 </Card.Section>

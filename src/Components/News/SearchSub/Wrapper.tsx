@@ -30,7 +30,6 @@ export const SerchWrapper = () => {
                     setTerm={setTerm}
                 />
                 <SearchButton term={term} setClick={setClick} />
-
                 {click === term && <Filtering phrase={search} sortBy={term} />}
             </div>
         </Layout>
