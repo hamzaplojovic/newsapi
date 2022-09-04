@@ -1,6 +1,5 @@
 import { createStyles, Button } from "@mantine/core";
 interface LoadMoreInterface {
-    data?: any;
     setNumberOfArticles: React.Dispatch<React.SetStateAction<number>>;
     numberOfArticles: number;
 }
@@ -20,7 +19,6 @@ export const Load = (props: LoadMoreInterface) => {
             <Button
                 onClick={() => {
                     props.setNumberOfArticles(props.numberOfArticles + 1);
-                    window.scrollTo(0, 100);
                 }}
             >
                 Load More

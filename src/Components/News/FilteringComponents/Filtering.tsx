@@ -27,6 +27,7 @@ export const Filtering = (props: { phrase: string; sortBy: string }) => {
         sortBy: props.sortBy,
         pageNumber: pageNumber,
     });
+    console.log(data);
 
     return (
         <MediaQuery
@@ -34,14 +35,13 @@ export const Filtering = (props: { phrase: string; sortBy: string }) => {
             styles={{ flexDirection: "column" }}
         >
             <div className={classes.container}>
-                {data.articles &&
-                    data.articles.map((item: any) => {
+                {data &&
+                    data.map((item: any) => {
                         return <NewsArticle data={item} key={item.url} />;
                     })}
                 <Load
-                    numberOfArticles={pageNumber}
                     setNumberOfArticles={setPageNumber}
-                    data={data}
+                    numberOfArticles={1}
                 />
             </div>
         </MediaQuery>

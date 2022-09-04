@@ -7,8 +7,9 @@ import { useState } from "react";
 
 export const App = () => {
     const [pageNumber, setPageNumber] = useState(1);
+
     return (
-        <NewsContextProvider pageNumber={pageNumber}>
+        <NewsContextProvider>
             <BrowserRouter>
                 <Routes>
                     <Route

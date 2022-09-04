@@ -14,11 +14,6 @@ export const News = (props: NewsInterface) => {
     return (
         <Layout>
             <Mapping data={data} />
-            <Load
-                numberOfArticles={props.pageNumber}
-                setNumberOfArticles={props.setPageNumber}
-                data={data}
-            />
         </Layout>
     );
 };

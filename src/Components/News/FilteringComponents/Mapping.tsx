@@ -1,5 +1,6 @@
 import NewsArticle from "../NewsArticle/NewsArticle";
 import { createStyles, MediaQuery } from "@mantine/core";
+import { Load } from "./LoadMore";
 
 const useStyles = createStyles(() => ({
     container: {
@@ -23,17 +24,24 @@ interface MappingInterface {
 
 export const Mapping = (props: MappingInterface) => {
     const { classes } = useStyles();
+    console.log(props.data.pageNumber);
     return (
-        <MediaQuery
-            query="(max-width:1000px)"
-            styles={{ flexDirection: "column" }}
-        >
-            <div className={classes.container}>
-                {props.data &&
-                    props.data.articles.map((item: any) => (
-                        <NewsArticle data={item} key={item.url} />
-                    ))}
-            </div>
-        </MediaQuery>
+        <>
+            <MediaQuery
+                query="(max-width:1000px)"
+                styles={{ flexDirection: "column" }}
+            >
+                <div className={classes.container}>
+                    {props?.data &&
+                        props?.data?.data?.map((item: any) => (
+                            <NewsArticle data={item} key={item.url} />
+                        ))}
+                </div>
+            </MediaQuery>
+            <Load
+                setNumberOfArticles={props.data.setPageNumber}
+                numberOfArticles={props.data.pageNumber}
+            />
+        </>
     );
 };
