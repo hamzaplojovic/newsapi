@@ -8,6 +8,7 @@ import {
 } from "@mantine/core";
 import { TablerIcon, IconHome2, IconSearch } from "@tabler/icons";
 import { Link } from "react-router-dom";
+import { SwitchToggle } from "./ToggleTheme";
 
 const useStyles = createStyles((theme, _params) => ({
     link: {
@@ -147,6 +148,7 @@ export function NavbarMinimal() {
                     >
                         {links}
                     </Stack>
+                    <SwitchToggle />
                 </Navbar.Section>
             </Navbar>
         </Navbar>
