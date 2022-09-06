@@ -1,22 +1,7 @@
-import NewsArticle from "../NewsArticle/NewsArticle";
-import { createStyles, MediaQuery } from "@mantine/core";
-import { Load } from "./LoadMore";
-
-const useStyles = createStyles(() => ({
-    container: {
-        width: "100%",
-        display: "flex",
-        padding: "5% 0%",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    buttonwrapper: {
-        width: "100%",
-        textAlign: "center",
-        marginBottom: "3%",
-    },
-}));
+import NewsArticle from "../../NewsArticle/NewsArticle";
+import { MediaQuery } from "@mantine/core";
+import { Load } from "../LoadMore/LoadMore";
+import { useStyles } from "./MappingStyles";
 
 interface MappingInterface {
     data: any;
@@ -24,7 +9,6 @@ interface MappingInterface {
 
 export const Mapping = (props: MappingInterface) => {
     const { classes } = useStyles();
-    console.log(props.data.pageNumber);
     return (
         <>
             <MediaQuery

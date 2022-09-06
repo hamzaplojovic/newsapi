@@ -1,28 +1,10 @@
-import { createStyles, Chip } from "@mantine/core";
+import { Chip } from "@mantine/core";
+import { useStyles } from "./ChipsStyles";
 
 interface ChipInterface {
     state: string;
     setState: React.Dispatch<React.SetStateAction<string>>;
 }
-
-const useStyles = createStyles((theme, _params, getRef) => ({
-    label: {
-        "&[data-checked]": {
-            "&, &:hover": {
-                backgroundColor: theme.colors.blue[theme.fn.primaryShade()],
-                color: theme.white,
-            },
-
-            [`& .${getRef("iconWrapper")}`]: {
-                color: theme.white,
-            },
-        },
-    },
-
-    iconWrapper: {
-        ref: getRef("iconWrapper"),
-    },
-}));
 
 export const Chips = (props: ChipInterface) => {
     const { classes } = useStyles();

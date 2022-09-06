@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NewsContext } from "../../context/context";
-import { Mapping } from "./FilteringComponents/Mapping";
+import { Mapping } from "./FilteringComponents/Mapping/Mapping";
 import { Layout } from "../Layout/Layout";
 
 export const News = () => {

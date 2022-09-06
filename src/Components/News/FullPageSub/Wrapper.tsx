@@ -1,5 +1,5 @@
 import { useLocation } from "react-router";
-import { FullPageContent } from "./FullPageContent";
+import { FullPageContent } from "./FullPageContent/FullPageContent";
 import { Layout } from "../../Layout/Layout";
 
 export const Wrapper = () => {

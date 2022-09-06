@@ -1,25 +1,8 @@
 import { Card, Image, Text, Button, Group } from "@mantine/core";
-import { createStyles, MediaQuery } from "@mantine/core";
+import { MediaQuery } from "@mantine/core";
 import { useNavigate } from "react-router";
+import { useStyles } from "./NewsArticleStyles";
 
-const useStyles = createStyles(() => ({
-    article: {
-        width: "35%",
-        margin: "5% 5%",
-        transition: "all 0.2s ease-in",
-        "&:hover": {
-            transform: "translateY(-10px)",
-        },
-    },
-    button: {
-        bottom: 0,
-        marginTop: "20px",
-        transition: "all 0.2s ease-in",
-        "&:hover": {
-            transform: "translateY(-3px)",
-        },
-    },
-}));
 type Data = {
     title: string;
     description: string;
@@ -64,10 +47,9 @@ function NewsArticle(props: ArticleInterface) {
                     {props.data.description}
                 </Text>
                 <Button
-                    variant="light"
-                    fullWidth
                     className={classes.button}
                     onClick={handleClick}
+                    variant="light"
                 >
                     View Article
                 </Button>

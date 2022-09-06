@@ -1,24 +1,10 @@
-import { useSearchData } from "../../../context/search";
-import { createStyles, MediaQuery } from "@mantine/core";
-import NewsArticle from "../NewsArticle/NewsArticle";
-import { Load } from "./LoadMore";
+import { useSearchData } from "../../../../context/search";
+import { MediaQuery } from "@mantine/core";
+import NewsArticle from "../../NewsArticle/NewsArticle";
+import { Load } from "../LoadMore/LoadMore";
 import { useState } from "react";
+import { useStyles } from "./FilteringStyles";
 
-const useStyles = createStyles(() => ({
-    container: {
-        width: "100%",
-        display: "flex",
-        padding: "5% 0%",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    buttonwrapper: {
-        width: "100%",
-        textAlign: "center",
-        marginBottom: "3%",
-    },
-}));
 export const Filtering = (props: { phrase: string; sortBy: string }) => {
     const [pageNumber, setPageNumber] = useState(1);
     const { classes } = useStyles();
@@ -27,7 +13,6 @@ export const Filtering = (props: { phrase: string; sortBy: string }) => {
         sortBy: props.sortBy,
         pageNumber: pageNumber,
     });
-    console.log(data);
 
     return (
         <MediaQuery

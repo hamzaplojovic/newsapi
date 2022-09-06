@@ -1,16 +1,9 @@
-import { createStyles, Button } from "@mantine/core";
+import { Button } from "@mantine/core";
+import { useStyles } from "./LoadMoreStyles";
 interface LoadMoreInterface {
     setNumberOfArticles: React.Dispatch<React.SetStateAction<number>>;
     numberOfArticles: number;
 }
-
-const useStyles = createStyles(() => ({
-    buttonwrapper: {
-        width: "100%",
-        textAlign: "center",
-        marginBottom: "3%",
-    },
-}));
 
 export const Load = (props: LoadMoreInterface) => {
     const { classes } = useStyles();

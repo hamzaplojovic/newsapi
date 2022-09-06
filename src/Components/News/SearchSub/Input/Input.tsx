@@ -1,18 +1,6 @@
-import { Chips } from "../FilteringComponents/Chips";
-import { createStyles, Input } from "@mantine/core";
-
-const useStyles = createStyles(() => ({
-    input: {
-        width: "50%",
-    },
-    chips: {
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "0% 20%",
-    },
-}));
-
+import { Input } from "@mantine/core";
+import { Chips } from "../../FilteringComponents/Chips/Chips";
+import { useStyles } from "./InputStyles";
 interface SearchInputType {
     term: string;
     setTerm: React.Dispatch<React.SetStateAction<string>>;

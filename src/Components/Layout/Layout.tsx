@@ -1,4 +1,4 @@
-import { NavbarMinimal } from "../Navbar/Navbar";
+import { NavbarMinimal } from "../Navbar/Navbar/Navbar";
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({

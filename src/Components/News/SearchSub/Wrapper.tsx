@@ -1,8 +1,8 @@
 import { createStyles } from "@mantine/core";
 import { Layout } from "../../Layout/Layout";
-import { SearchInput } from "./Input";
-import { SearchButton } from "./Button";
-import { Filtering } from "../FilteringComponents/Filtering";
+import { SearchInput } from "./Input/Input";
+import { SearchButton } from "./Button/Button";
+import { Filtering } from "../FilteringComponents/Filtering/Filtering";
 import { useState } from "react";
 
 const useStyles = createStyles(() => ({
