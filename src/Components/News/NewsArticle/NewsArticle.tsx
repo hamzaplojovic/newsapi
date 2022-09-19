@@ -23,13 +23,7 @@ function NewsArticle(props: ArticleInterface) {
     };
     return (
         <MediaQuery query="(max-width:1000px)" styles={{ width: "80%" }}>
-            <Card
-                shadow="sm"
-                p="lg"
-                radius="md"
-                withBorder
-                className={classes.article}
-            >
+            <Card withBorder className={classes.article}>
                 <Card.Section>
                     <Image
                         src={props.data.urlToImage}
@@ -37,14 +31,13 @@ function NewsArticle(props: ArticleInterface) {
                         fit="cover"
                     />
                 </Card.Section>
-
                 <Group position="apart" mt="md" mb="xs">
                     <Text weight={500} size="md">
                         {props.data.title}
                     </Text>
                 </Group>
 
-                <Text size="xs" color="dimmed">
+                <Text className={classes.desc}>
                     {props.data.content
                         ? props.data.content.slice(0, -13)
                         : props.data.description}

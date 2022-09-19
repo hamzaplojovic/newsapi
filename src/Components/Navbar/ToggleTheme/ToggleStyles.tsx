@@ -24,4 +24,11 @@ export const useStyles = createStyles((theme) => ({
         right: 4,
         color: theme.colors.gray[6],
     },
+    wrapper: {
+        display: "flex",
+        justifyContent: "center",
+        margin: "30px 30px",
+        marginTop: "14px",
+        marginLeft: "30px",
+    },
 }));
