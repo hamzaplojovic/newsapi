@@ -15,8 +15,7 @@ export const useStyles = createStyles((theme, _params) => ({
                 : theme.colors.gray[7],
 
         "& child, &:hover": {
-            transform: "translateY(-1px)",
-            scale: "1.2",
+            scale: "1.05",
             backgroundColor:
                 theme.colorScheme === "dark"
                     ? theme.colors.dark[5]

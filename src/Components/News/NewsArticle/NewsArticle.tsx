@@ -5,8 +5,9 @@ import { useStyles } from "./NewsArticleStyles";
 
 type Data = {
     title: string;
-    description: string;
     urlToImage: string;
+    content: string;
+    description: string;
 };
 
 interface ArticleInterface {
@@ -39,12 +40,14 @@ function NewsArticle(props: ArticleInterface) {
 
                 <Group position="apart" mt="md" mb="xs">
                     <Text weight={500} size="md">
-                        {props.data.description}
+                        {props.data.title}
                     </Text>
                 </Group>
 
                 <Text size="xs" color="dimmed">
-                    {props.data.description}
+                    {props.data.content
+                        ? props.data.content.slice(0, -13)
+                        : props.data.description}
                 </Text>
                 <Button
                     className={classes.button}

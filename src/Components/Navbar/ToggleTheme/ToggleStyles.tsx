@@ -3,9 +3,6 @@ import { createStyles } from "@mantine/core";
 export const useStyles = createStyles((theme) => ({
     root: {
         position: "relative",
-        "& *": {
-            cursor: "pointer",
-        },
     },
 
     icon: {
@@ -18,6 +15,9 @@ export const useStyles = createStyles((theme) => ({
     iconLight: {
         left: 4,
         color: theme.white,
+        "& *": {
+            cursor: "pointer",
+        },
     },
 
     iconDark: {
