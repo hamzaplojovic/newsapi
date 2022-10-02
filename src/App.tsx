@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import { NewsContextProvider } from "./context/context";
+import { News } from "./Components/News/News";
+import { Search } from "./Components/News/Search";
+import { FullPage } from "./Components/News/FullPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import {
+    MantineProvider,
+    ColorSchemeProvider,
+    ColorScheme,
+} from "@mantine/core";
+export const App = () => {
+    const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+    const toggleColorScheme = (value?: ColorScheme) =>
+        setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+    return (
+        <ColorSchemeProvider
+            colorScheme={colorScheme}
+            toggleColorScheme={toggleColorScheme}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+            <MantineProvider
+                theme={{ colorScheme }}
+                withGlobalStyles
+                withNormalizeCSS
+            >
+                <NewsContextProvider>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<News />} />
+                            <Route path="/article" element={<FullPage />} />
+                            <Route path="/news" element={<Search />} />
+                        </Routes>
+                    </BrowserRouter>
+                </NewsContextProvider>
+            </MantineProvider>
+        </ColorSchemeProvider>
+    );
+};
